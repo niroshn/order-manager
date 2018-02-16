@@ -7,5 +7,9 @@ before_install:
   - mysql -u root --password="" < src/test/java/com/sysco/ordermanager/travis.sql
 install:
   - mvn install -DskipTests
-script:
-  - mvn spring-boot:run
+jobs:
+  include:
+    - stage: test
+      script: mvn  test
+    - stage: deploy
+      script: mvn spring-boot:run
