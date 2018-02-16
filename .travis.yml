@@ -4,6 +4,6 @@ jdk:
 services:
   - mysql
 before_install:
-  - mysql -u root --password="" 
+  - mysql -u root --password="" < src/test/java/com/sysco/ordermanager/travis.sql
 script:
   - mvn install -DskipTests
